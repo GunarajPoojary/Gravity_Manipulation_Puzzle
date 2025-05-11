@@ -12,8 +12,6 @@ namespace GravityManipulationPuzzle
 
         [SerializeField] private TMP_Text _gameStateText;
 
-        [SerializeField] private float _waitTimeAfterGameOver = 3f;
-
         private void Awake()
         {
             Instance = this;
