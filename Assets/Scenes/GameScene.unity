@@ -522,6 +522,7 @@ GameObject:
   - component: {fileID: 135330566}
   - component: {fileID: 135330570}
   - component: {fileID: 135330569}
+  - component: {fileID: 135330571}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -676,11 +677,80 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 826eea50-aa33-4b8b-9b32-48985858e06c
     m_ActionName: 'Player/Jump[/Keyboard/space]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7b016892-5e8c-4264-9b2f-315c4a884841
+    m_ActionName: 'Player/Look[/Mouse/delta]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b9e3b002-2eb8-4606-8e8c-9b00ff807af3
+    m_ActionName: 'Player/CursorToggle[/Keyboard/leftAlt]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 135330571}
+        m_TargetAssemblyTypeName: GravityManipulationPuzzle.GravityShift, GravityManipulationPuzzle
+        m_MethodName: OnApplyGravityShift
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 43844caf-3107-45c3-b815-dae354aeb82b
+    m_ActionName: 'Player/ShiftGravity[/Keyboard/enter]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 135330571}
+        m_TargetAssemblyTypeName: GravityManipulationPuzzle.GravityShift, GravityManipulationPuzzle
+        m_MethodName: OnGravityShiftPreview
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: a7dca898-8f23-4540-90bb-be581478d5c5
+    m_ActionName: 'Player/GravityShiftPreview[/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 135330571}
+        m_TargetAssemblyTypeName: GravityManipulationPuzzle.GravityShift, GravityManipulationPuzzle
+        m_MethodName: OnDiscardGravityShiftPreview
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: d375ffe2-a098-4ca0-bbbc-7208e0764c6e
+    m_ActionName: 'Player/DiscardGravityShiftPreview[/Keyboard/escape]'
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: KeyboardMouse
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &135330571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135330565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e5559bf3c03ed64d8261ef363764ffa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hologramPlayer: {fileID: 1613746055}
 --- !u!1 &140329493
 GameObject:
   m_ObjectHideFlags: 0
@@ -1658,6 +1728,94 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.000000024214387, y: 0.7099228, z: 0.08985246}
     m_Extent: {x: 0.045653895, y: 0.014752507, z: 0.014238007}
   m_DirtyAABB: 0
+--- !u!1 &249549927
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 249549928}
+  - component: {fileID: 249549930}
+  - component: {fileID: 249549929}
+  m_Layer: 0
+  m_Name: cm
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &249549928
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 249549927}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.23937817, y: 1.8668886e-15, z: -5.3965803e-16, w: 0.9709264}
+  m_LocalPosition: {x: 0, y: -2.3434277, z: 3.0274165}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 725890354}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &249549929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 249549927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ad980451443d70438faac0bc6c235a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TrackedObjectOffset: {x: 0, y: 0, z: 0}
+  m_LookaheadTime: 0
+  m_LookaheadSmoothing: 0
+  m_LookaheadIgnoreY: 0
+  m_XDamping: 1
+  m_YDamping: 1
+  m_ZDamping: 1
+  m_TargetMovementOnly: 1
+  m_ScreenX: 0.5
+  m_ScreenY: 0.5
+  m_CameraDistance: 10
+  m_DeadZoneWidth: 0
+  m_DeadZoneHeight: 0
+  m_DeadZoneDepth: 0
+  m_UnlimitedSoftZone: 0
+  m_SoftZoneWidth: 0.8
+  m_SoftZoneHeight: 0.8
+  m_BiasX: 0
+  m_BiasY: 0
+  m_CenterOnActivate: 1
+  m_GroupFramingMode: 2
+  m_AdjustmentMode: 0
+  m_GroupFramingSize: 0.8
+  m_MaxDollyIn: 5000
+  m_MaxDollyOut: 5000
+  m_MinimumDistance: 1
+  m_MaximumDistance: 5000
+  m_MinimumFOV: 3
+  m_MaximumFOV: 60
+  m_MinimumOrthoSize: 1
+  m_MaximumOrthoSize: 5000
+--- !u!114 &249549930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 249549927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &271616383
 GameObject:
   m_ObjectHideFlags: 0
@@ -2033,7 +2191,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -2.38, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.3094, y: 1.3277316, z: 1.3094}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 774331245}
@@ -2834,7 +2992,7 @@ GameObject:
   m_Component:
   - component: {fileID: 725890354}
   - component: {fileID: 725890353}
-  - component: {fileID: 725890352}
+  - component: {fileID: 725890356}
   - component: {fileID: 725890351}
   - component: {fileID: 725890355}
   - component: {fileID: 725890349}
@@ -2863,7 +3021,7 @@ MonoBehaviour:
   m_ControllerManager:
     Controllers:
     - Name: Look Orbit X
-      Owner: {fileID: 725890352}
+      Owner: {fileID: 725890356}
       Enabled: 1
       Input:
         InputAction: {fileID: -5630151704836100654, guid: 1d6e640e716dc4ff6989b73d02023f2b, type: 3}
@@ -2876,7 +3034,7 @@ MonoBehaviour:
         AccelTime: 0.2
         DecelTime: 0.2
     - Name: Look Orbit Y
-      Owner: {fileID: 725890352}
+      Owner: {fileID: 725890356}
       Enabled: 1
       Input:
         InputAction: {fileID: -5630151704836100654, guid: 1d6e640e716dc4ff6989b73d02023f2b, type: 3}
@@ -2889,7 +3047,7 @@ MonoBehaviour:
         AccelTime: 0.2
         DecelTime: 0.2
     - Name: Orbit Scale
-      Owner: {fileID: 725890352}
+      Owner: {fileID: 725890356}
       Enabled: 1
       Input:
         InputAction: {fileID: 5082991133974614888, guid: 1d6e640e716dc4ff6989b73d02023f2b, type: 3}
@@ -2921,80 +3079,17 @@ MonoBehaviour:
       Enabled: 0
       Size: {x: 0.2, y: 0.2}
     HardLimits:
-      Enabled: 1
+      Enabled: 0
       Size: {x: 0.8, y: 0.8}
       Offset: {x: 0, y: 0}
   CenterOnActivate: 1
   TargetOffset: {x: 0, y: 0, z: 0}
-  Damping: {x: 0.5, y: 0.5}
+  Damping: {x: 0, y: 0}
   Lookahead:
     Enabled: 0
     Time: 0
     Smoothing: 0
     IgnoreY: 0
---- !u!114 &725890352
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 725890348}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b5d7c088409d9a40b7b09aa707777f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TargetOffset: {x: 0, y: 0.6, z: 0}
-  TrackerSettings:
-    BindingMode: 4
-    PositionDamping: {x: 0, y: 0, z: 0}
-    AngularDampingMode: 0
-    RotationDamping: {x: 1, y: 1, z: 1}
-    QuaternionDamping: 1
-  OrbitStyle: 0
-  Radius: 3
-  Orbits:
-    Top:
-      Radius: 2
-      Height: 2.22
-    Center:
-      Radius: 4
-      Height: -0.06
-    Bottom:
-      Radius: 2.5
-      Height: -1.7
-    SplineCurvature: 1
-  RecenteringTarget: 2
-  HorizontalAxis:
-    Value: 0
-    Center: 0
-    Range: {x: 0, y: 360}
-    Wrap: 1
-    Recentering:
-      Enabled: 0
-      Wait: 1
-      Time: 2
-    Restrictions: 0
-  VerticalAxis:
-    Value: 17.5
-    Center: 17.5
-    Range: {x: -70, y: 85}
-    Wrap: 0
-    Recentering:
-      Enabled: 0
-      Wait: 1
-      Time: 2
-    Restrictions: 0
-  RadialAxis:
-    Value: 1
-    Center: 1
-    Range: {x: 1, y: 1}
-    Wrap: 0
-    Recentering:
-      Enabled: 0
-      Wait: 1
-      Time: 2
-    Restrictions: 0
 --- !u!114 &725890353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3046,11 +3141,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 725890348}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.23937817, y: -0.0000000144679335, z: 0.000000003567013, w: 0.97092646}
-  m_LocalPosition: {x: 0, y: 3.4821177, z: -1.5911508}
+  m_LocalRotation: {x: 0.15215525, y: -0.000000002333107, z: 3.591765e-10, w: 0.98835665}
+  m_LocalPosition: {x: 0, y: 4.987058, z: -8.26717}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 249549928}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &725890355
@@ -3092,6 +3188,69 @@ MonoBehaviour:
     NearLimit: 5
     FarLimit: 30
     MaxQualityBoost: 0.2
+--- !u!114 &725890356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 725890348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b5d7c088409d9a40b7b09aa707777f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetOffset: {x: 0, y: 0, z: 0}
+  TrackerSettings:
+    BindingMode: 5
+    PositionDamping: {x: 0, y: 0, z: 0}
+    AngularDampingMode: 1
+    RotationDamping: {x: 0, y: 0, z: 0}
+    QuaternionDamping: 0
+  OrbitStyle: 0
+  Radius: 10
+  Orbits:
+    Top:
+      Radius: 2
+      Height: 5
+    Center:
+      Radius: 4
+      Height: 2.25
+    Bottom:
+      Radius: 2.5
+      Height: 0.1
+    SplineCurvature: 0.5
+  RecenteringTarget: 2
+  HorizontalAxis:
+    Value: 0
+    Center: 0
+    Range: {x: -180, y: 180}
+    Wrap: 1
+    Recentering:
+      Enabled: 0
+      Wait: 1
+      Time: 2
+    Restrictions: 0
+  VerticalAxis:
+    Value: 17.5
+    Center: 17.5
+    Range: {x: -10, y: 45}
+    Wrap: 0
+    Recentering:
+      Enabled: 0
+      Wait: 1
+      Time: 2
+    Restrictions: 0
+  RadialAxis:
+    Value: 1
+    Center: 1
+    Range: {x: 1, y: 1}
+    Wrap: 0
+    Recentering:
+      Enabled: 0
+      Wait: 1
+      Time: 2
+    Restrictions: 0
 --- !u!1 &728711182
 GameObject:
   m_ObjectHideFlags: 0
@@ -3649,8 +3808,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 828467303}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.23937818, y: -0.000000014467934, z: 0.0000000035670138, w: 0.9709264}
-  m_LocalPosition: {x: 0, y: 3.4821177, z: -1.5911508}
+  m_LocalRotation: {x: 0.15215528, y: 0, z: 0, w: 0.98835665}
+  m_LocalPosition: {x: 0, y: 3.3835962, z: -3.1806374}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6468,6 +6627,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1587925714313549092, guid: 182dca60ed326f3428ad3606d0559a74, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.3094
+      objectReference: {fileID: 0}
+    - target: {fileID: 1587925714313549092, guid: 182dca60ed326f3428ad3606d0559a74, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.3277316
+      objectReference: {fileID: 0}
+    - target: {fileID: 1587925714313549092, guid: 182dca60ed326f3428ad3606d0559a74, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.3094
+      objectReference: {fileID: 0}
     - target: {fileID: 3593765101390837326, guid: 182dca60ed326f3428ad3606d0559a74, type: 3}
       propertyPath: m_Name
       value: PlayerHolo
@@ -6486,7 +6657,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4625639375731245386, guid: 182dca60ed326f3428ad3606d0559a74, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.98
+      value: 1.27
       objectReference: {fileID: 0}
     - target: {fileID: 4625639375731245386, guid: 182dca60ed326f3428ad3606d0559a74, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6755,6 +6926,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1201159773}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1613746055 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3593765101390837326, guid: 182dca60ed326f3428ad3606d0559a74, type: 3}
+  m_PrefabInstance: {fileID: 1532625936}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1642398635
 GameObject:
   m_ObjectHideFlags: 0

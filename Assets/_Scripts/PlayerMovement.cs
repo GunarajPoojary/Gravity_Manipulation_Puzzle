@@ -21,6 +21,7 @@ namespace GravityManipulationPuzzle
         private Vector3 _movementInput;
         private Rigidbody _rb;
         private Transform _cam;
+        private IGravityDirectionProvider _gravityShift;
 
         private static readonly int IsRunningHash = Animator.StringToHash("IsRunning");
         private static readonly int IsFallingHash = Animator.StringToHash("IsFalling");
@@ -46,6 +47,7 @@ namespace GravityManipulationPuzzle
         {
             _cam = Camera.main.transform;
             _rb = GetComponent<Rigidbody>();
+            _gravityShift = GetComponent<GravityShift>();
 
             if (_animator == null)
                 Debug.Log("Animator component is not assigned");
@@ -67,7 +69,7 @@ namespace GravityManipulationPuzzle
 
         private void Move()
         {
-            var gravityUp = Vector3.up;
+            var gravityUp = -_gravityShift.GravityDirection.normalized;
 
             var moveDir = Vector3.ProjectOnPlane(_cam.forward * _movementInput.z + _cam.right * _movementInput.x, gravityUp).normalized;
 
@@ -79,7 +81,7 @@ namespace GravityManipulationPuzzle
             }
         }
 
-        private void Jump() => _rb.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
+        private void Jump() => _rb.AddForce(-_gravityShift.GravityDirection * _jumpForce, ForceMode.Impulse);
 
         private void CheckGrounded() => _isGrounded = Physics.CheckSphere(_groundCheck.position, _groundCheckRadius, _groundLayer);
 
