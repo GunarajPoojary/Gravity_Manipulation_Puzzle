@@ -9,7 +9,7 @@ namespace GravityManipulationPuzzle
     public class Collector : MonoBehaviour
     {
         [SerializeField] private string _collectibleTag = "Collectible";
-        [SerializeField] private int _numberOfAvailableCubes = 10;
+        [SerializeField] private int _numberOfAvailableCubes = 5;
 
         private int _collectedCount = 0;
 

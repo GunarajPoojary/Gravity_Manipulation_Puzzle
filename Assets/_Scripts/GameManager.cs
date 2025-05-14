@@ -11,6 +11,7 @@ namespace GravityManipulationPuzzle
         public static GameManager Instance { get; private set; }
 
         [SerializeField] private TMP_Text _gameStateText;
+        [SerializeField] private GameObject _mobileControls;
 
         private void Awake()
         {
@@ -25,22 +26,19 @@ namespace GravityManipulationPuzzle
                 Debug.LogWarning("GameOverText is not assigned in the inspector.", this);
                 return;
             }
+#if UNITY_ANDROID
+            _mobileControls.SetActive(true);
+#else
+            _mobileControls.SetActive(false);
+#endif
 
             // Ensure the game state text is hidden
             _gameStateText.gameObject.SetActive(false);
         }
 
-        private void Update() {
-            if(Input.GetKeyDown(KeyCode.Escape))
-            {
-                Application.Quit();
-            }
-        }
+        public void RestartGame() => SceneManager.LoadSceneAsync(0);
 
-        public void RestartGame()
-        {
-            SceneManager.LoadScene(0);
-        }
+        public void QuitGame() => Application.Quit();
 
         public void GameWon()
         {

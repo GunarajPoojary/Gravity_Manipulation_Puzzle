@@ -47,6 +47,7 @@ namespace GravityManipulationPuzzle
             _cam = Camera.main.transform;
 
             _gravityDirection = Vector3.down;
+            Physics.gravity = GRAVITY * -_gravityDirection;
             _hologramPlayer.SetActive(false);
         }
 
