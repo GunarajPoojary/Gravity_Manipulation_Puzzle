@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 namespace GravityManipulationPuzzle
 {
-    [RequireComponent(typeof(CapsuleCollider), typeof(Rigidbody))]
+    [RequireComponent(typeof(GravityShift), typeof(Rigidbody))]
     public class PlayerMovement : MonoBehaviour
     {
         [SerializeField] private float _moveSpeed = 5f;
