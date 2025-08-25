@@ -1036,7 +1036,7 @@ MonoBehaviour:
     m_ActionId: 4c461cbb-076b-4100-98f4-d5399075f8f4
     m_ActionName: Player/Look
   m_NeverAutoSwitchControlSchemes: 1
-  m_DefaultControlScheme: Gamepad
+  m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
