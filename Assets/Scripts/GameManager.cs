@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using GravityManipulationPuzzle.Events;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,15 +8,11 @@ namespace GravityManipulationPuzzle
     [DefaultExecutionOrder(-2)]
     public class GameManager : MonoBehaviour
     {
-        // Singleton instance for easy access
-        public static GameManager Instance { get; private set; }
-
         [SerializeField] private TMP_Text _gameStateText;
+        [SerializeField] private GameEvents _gameEvents;
 
         private void Awake()
         {
-            Instance = this;
-
             _gameStateText.gameObject.SetActive(false);
 
             Time.timeScale = 1;
@@ -26,15 +23,32 @@ namespace GravityManipulationPuzzle
                 return;
             }
 
-            // Ensure the game state text is hidden
             _gameStateText.gameObject.SetActive(false);
         }
+
+        private void OnEnable()
+        {
+            _gameEvents.GameCompleteEvent.OnEventRaised += GameWon;
+            _gameEvents.FreeFallEvent.OnEventRaised += HandleFreeFall;
+            _gameEvents.TimeEndEvent.OnEventRaised += HandleTimeOver;
+        }
+
+        private void OnDisable()
+        {
+            _gameEvents.GameCompleteEvent.OnEventRaised -= GameWon;
+            _gameEvents.FreeFallEvent.OnEventRaised -= HandleFreeFall;
+            _gameEvents.TimeEndEvent.OnEventRaised -= HandleTimeOver;
+        }
+
+        private void HandleFreeFall(Empty e = null) => GameOver("Free Fall!");
+
+        private void HandleTimeOver(Empty e = null) => GameOver("Time Over");
 
         public void RestartGame() => SceneManager.LoadSceneAsync(0);
 
         public void QuitGame() => Application.Quit();
 
-        public void GameWon()
+        private void GameWon(Empty e = null)
         {
             _gameStateText.gameObject.SetActive(true);
             _gameStateText.text = "You won!";

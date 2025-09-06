@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 namespace GravityManipulationPuzzle
 {
     [RequireComponent(typeof(GravityShift), typeof(Rigidbody))]
-    public class PlayerMovement : MonoBehaviour
+    public class PlayerController : MonoBehaviour
     {
         [SerializeField] private float _moveSpeed = 5f;
         [SerializeField] private float _turnSmoothTime = 0.1f;
@@ -56,7 +56,7 @@ namespace GravityManipulationPuzzle
         #region Input Methods
         public void OnMove(InputAction.CallbackContext ctx)
         {
-            var inputVector = ctx.ReadValue<Vector2>();
+            Vector2 inputVector = ctx.ReadValue<Vector2>();
 
             _movementInput = new Vector3(inputVector.x, 0, inputVector.y);
         }
@@ -69,13 +69,13 @@ namespace GravityManipulationPuzzle
 
         private void Move()
         {
-            var gravityUp = -_gravityShift.GravityDirection.normalized;
+            Vector3 gravityUp = -_gravityShift.GravityDirection.normalized;
 
-            var moveDir = Vector3.ProjectOnPlane(_cam.forward * _movementInput.z + _cam.right * _movementInput.x, gravityUp).normalized;
+            Vector3 moveDir = Vector3.ProjectOnPlane(_cam.forward * _movementInput.z + _cam.right * _movementInput.x, gravityUp).normalized;
 
             if (moveDir.sqrMagnitude >= 0.01f)
             {
-                var targetRotation = Quaternion.LookRotation(moveDir, gravityUp);
+                Quaternion targetRotation = Quaternion.LookRotation(moveDir, gravityUp);
                 _rb.rotation = Quaternion.Slerp(_rb.rotation, targetRotation, _turnSmoothTime);
                 _rb.MovePosition(_rb.position + _moveSpeed * Time.deltaTime * moveDir);
             }

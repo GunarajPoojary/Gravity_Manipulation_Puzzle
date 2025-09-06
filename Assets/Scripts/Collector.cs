@@ -1,5 +1,5 @@
-﻿using UnityEngine;
-using UnityEngine.Events;
+﻿using GravityManipulationPuzzle.Events;
+using UnityEngine;
 
 namespace GravityManipulationPuzzle
 {
@@ -8,33 +8,28 @@ namespace GravityManipulationPuzzle
     /// </summary>
     public class Collector : MonoBehaviour
     {
-        [SerializeField] private string _collectibleTag = "Collectible";
+        [SerializeField] private LayerMask _collectibeLayer;
         [SerializeField] private int _numberOfAvailableCubes = 5;
+        [SerializeField] private GameEvents _gameEvents;
 
         private int _collectedCount = 0;
 
-        [Space(10)]
-        public UnityEvent OnCollectAllCubes;
-        public UnityEvent<int, int> OnCollectedCountChanged;
+        private void Start() => _gameEvents.UpdateCollectedCubeCountUIEvent.RaiseEvent((_collectedCount, _numberOfAvailableCubes));
 
-        private void Start() => OnCollectedCountChanged?.Invoke(_collectedCount, _numberOfAvailableCubes);
-
-        private void OnTriggerEnter(Collider other)
+        private void OnTriggerEnter(Collider col)
         {
-            // Checks if the collided object has the "Collectable" tag.
-            if (other.CompareTag(_collectibleTag))
+            if (((1 << col.gameObject.layer) & _collectibeLayer) != 0)
             {
+                if (!col.TryGetComponent(out ICollectible collectible)) return;
+
+                collectible.Collect();
+
                 _collectedCount++;
 
-                OnCollectedCountChanged?.Invoke(_collectedCount, _numberOfAvailableCubes);
+                _gameEvents.UpdateCollectedCubeCountUIEvent.RaiseEvent((_collectedCount, _numberOfAvailableCubes));
 
-                other.gameObject.SetActive(false);
-
-                // Checks if all cubes have been collected.
                 if (_collectedCount >= _numberOfAvailableCubes)
-                {
-                    OnCollectAllCubes?.Invoke();
-                }
+                    _gameEvents.GameCompleteEvent.RaiseEvent(null);
             }
         }
     }

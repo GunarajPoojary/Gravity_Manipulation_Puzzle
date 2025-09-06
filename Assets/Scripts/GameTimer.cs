@@ -1,13 +1,14 @@
 using System.Collections;
+using GravityManipulationPuzzle.Events;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace GravityManipulationPuzzle
 {
-    public class CountdownTimer : MonoBehaviour
+    public class GameTimer : MonoBehaviour
     {
         [Tooltip("Initial countdown time in seconds")]
         [SerializeField] private int _initialTime = 120;
+        [SerializeField] private GameEvents _gameEvents;
 
         private int _remainingTime;
 
@@ -20,11 +21,6 @@ namespace GravityManipulationPuzzle
         public bool IsPaused => _isPaused;
 
         public int RemainingTime => _remainingTime;
-
-        [Space(20)]
-        public UnityEvent<int> OnTimerUpdated;
-
-        public UnityEvent OnTimerCompleted;
 
         private void Start()
         {
@@ -63,7 +59,7 @@ namespace GravityManipulationPuzzle
 
             // Reset the remaining time and update any UI listeners
             _remainingTime = 0;
-            OnTimerUpdated?.Invoke(0);
+            _gameEvents.UpdateTimeUIEvent.RaiseEvent(0);
         }
 
         /// <summary>
@@ -80,7 +76,7 @@ namespace GravityManipulationPuzzle
                     _remainingTime--;
 
                     // Notify listeners (e.g., UI) about the updated time
-                    OnTimerUpdated?.Invoke(_remainingTime);
+                    _gameEvents.UpdateTimeUIEvent.RaiseEvent(_remainingTime);
                 }
                 else
                 {
@@ -92,8 +88,8 @@ namespace GravityManipulationPuzzle
             _remainingTime = 0;
             _countdownCoroutine = null;
 
-            OnTimerUpdated?.Invoke(0);
-            OnTimerCompleted?.Invoke();
+            _gameEvents.UpdateTimeUIEvent.RaiseEvent(0);
+            _gameEvents.TimeEndEvent.RaiseEvent(null);
         }
     }
 }
