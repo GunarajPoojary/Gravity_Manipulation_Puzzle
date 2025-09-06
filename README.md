@@ -39,7 +39,7 @@ A Unity-based puzzle game where players manipulate gravity to solve challenging 
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/yourusername/gravity-manipulation-puzzle.git
+    git clone https://github.com/GunarajPoojary/Gravity_Manipulation_Puzzle.git
     ```
 
 2. Open the project in Unity (version 2020.3 LTS or newer recommended).
@@ -53,4 +53,4 @@ A Unity-based puzzle game where players manipulate gravity to solve challenging 
 - Move the player using keyboard/gamepad controls.
 - Use Arrow Keys to preview and Enter key apply gravity shifts.
 - Collect all hologram cubes before time runs out.
-- Avoid free-fall to prevent game over.(https://github.com/yourusername/gravity-manipulation-puzzle)
+- Avoid free-fall to prevent game over.
