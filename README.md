@@ -1,6 +1,6 @@
 # Gravity Manipulation Puzzle
 
-A Unity-based puzzle game where players manipulate gravity to solve challenging levels. Collect cubes, avoid free-fall, and beat the timer by creatively shifting gravity directions.
+Prototype of a gravity-based puzzle mechanic where players can manipulate gravity directions to navigate the environment. The system includes cube collection, free-fall avoidance, and time-based challenges, showcasing creative use of physics and player control within Unity.
 
 ## 🎮 Gameplay Overview
 
