@@ -3,7 +3,7 @@
 Prototype of a gravity-based puzzle mechanic where players can manipulate gravity directions to navigate the environment. The system includes cube collection, free-fall avoidance, and time-based challenges, showcasing creative use of physics and player control within Unity.
 
 ## 🎮 Gameplay Overview
-![Demo](Media/GravityShiftMechanicDesktop.mp4) 
+![Demo](Media/GravityShiftMechanicDesktop.gif) 
 - Collect all available collectible cubes within the time limit.
 - Shift gravity dynamically to navigate tricky terrains.
 - Avoid free-fall events and time-outs that result in game over.
