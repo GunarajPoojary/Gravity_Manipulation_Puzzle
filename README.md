@@ -1,15 +1,15 @@
 # Gravity Manipulation Puzzle
 
-Prototype of a gravity-based puzzle mechanic where players can manipulate gravity directions to navigate the environment. The system includes cube collection, free-fall avoidance, and time-based challenges, showcasing creative use of physics and player control within Unity.
+A quick prototype of a gravity-based puzzle mechanic where players can manipulate gravity directions to navigate the environment. The system includes cube collection, free-fall avoidance, and time-based challenges, showcasing creative use of physics and player control within Unity.
 
-## 🎮 Gameplay Overview
+## Gameplay Overview
 ![Demo](Media/GravityShiftMechanicDesktop.gif) 
 - Collect all available collectible cubes within the time limit.
 - Shift gravity dynamically to navigate tricky terrains.
 - Avoid free-fall events and time-outs that result in game over.
 - Enjoy a hologram preview system for visualizing gravity shifts before applying them.
 
-## 🚀 Features
+## Features
 
 - **Gravity Shift System**: Preview and apply gravity direction changes based on player input.
 - **Free-Fall Detection**: Detect when the player falls too far and trigger a game over.
@@ -19,7 +19,7 @@ Prototype of a gravity-based puzzle mechanic where players can manipulate gravit
 - **Responsive UI**: Displays collected cubes count and remaining time.
 - **Game Events Architecture**: Decoupled event system for easier event-driven logic.
 
-## 🧱 Core Scripts Overview
+## Core Scripts Overview
 
 | Script | Purpose |
 | ------ | ------- |
@@ -35,7 +35,7 @@ Prototype of a gravity-based puzzle mechanic where players can manipulate gravit
 | `HologramCube.cs` | Represents a collectible cube with hologram behavior. |
 | `ICollectible.cs` | Interface for collectible items. |
 
-## ⚡ Installation
+## Installation
 
 1. Clone the repository:
     ```bash
@@ -48,7 +48,7 @@ Prototype of a gravity-based puzzle mechanic where players can manipulate gravit
 
 4. Ensure input actions are properly set up (via the Input System package).
 
-## 🛠️ Usage
+## Usage
 
 - Move the player using keyboard/gamepad controls.
 - Use Arrow Keys to preview and Enter key apply gravity shifts.
